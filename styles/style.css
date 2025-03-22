@@ -60,16 +60,22 @@ ol {
   background-color: #d9d9d9;
 }
 
-/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*/
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
-.visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
+/* ? Result */
+
+.result__video-container {
+  width: 100%;
+  height: 386px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .search-form {
@@ -107,7 +113,67 @@ ol {
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   min-width: 225px;
+
+  appearance: none;
 }
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+
+  padding-bottom: 5px;
+}
+
+.search-form__fieldset {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: none;
+}
+
+.search-form__pseudo-checkbox {
+  display: block;
+  width: 19px;
+  height: 19px;
+  margin-right: 5px;
+  border: 1px solid white;
+}
+
+input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
+  content: "";
+  display: block;
+  background: #fff;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 2px solid black;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: 1px underline #fff; 
+}
+
+.button .search-form__submit-button {
+  align-self: flex-end;
+}
+
+/* ? Result */
+
+/* ? Content Details */
 
 .title {
   font-family: "Oswald", sans-serif;
@@ -153,6 +219,11 @@ ol {
   text-decoration: none;
 }
 
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
@@ -173,7 +244,7 @@ ol {
 }
 
 .content__video-card-description {
-  font-family: Fira Sans Condensed, "Arial", sans-serif;
+  font-family: "Fira Sans Condensed", "Arial", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16.2px;
@@ -181,10 +252,10 @@ ol {
 
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* Для старых браузеров */
+  -webkit-line-clamp: 4; /* Для старых браузеров */
   overflow: hidden;
   text-overflow: ellipsis; /* Добавляем многоточие */
-  line-clamp: 2;      /*  Для современных браузеров */
+  line-clamp: 4;      /*  Для современных браузеров */
 }
 
 .content__details {
@@ -194,50 +265,18 @@ ol {
   gap: 26px;
 }
 
-.result__video-container {
-  width: 711px;
-  height: 386px;
-  margin-bottom: 16px;
-  position: relative;
+.content__card-link_current {
+  background-color: #545050;
 }
 
-.result__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.content__card-link:hover {
+  text-decoration: 1px underline #fff;
 }
 
-.search-form__checkbox-list {
+.content__list-item {
   display: flex;
-  gap: 15px;
-
-  padding-bottom: 5px;
-}
-
-.search-form__fieldset {
-  display: flex;
-  gap: 5px;
   flex-direction: column;
-  flex-wrap: wrap;
-  border: none;
-}
-
-.search-form__pseudo-checkbox {
-  display: block;
-  width: 19px;
-  height: 19px;
-  margin-right: 5px;
-  border: 1px solid white;
-}
-
-input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
-  content: "";
-  display: block;
-  background: #fff;
-  inline-size: 100%;
-  block-size: 100%;
-  border: 2px solid black;
+  padding: 0 3px;
 }
 
 .button:focus {
@@ -266,10 +305,6 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   background-color: #545050;
 }
 
-.button .search-form__submit-button {
-  align-self: flex-end;
-}
-
 .more-button {
   width: 100%;
   margin-top: 30px;
@@ -280,20 +315,4 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   outline-offset: 2px;
 }
 
-.content__card-link_current {
-  background-color: #545050;
-}
-
-.content__card-link:hover {
-  text-decoration: 1px underline #fff;
-}
-
-.content__list-item {
-  display: flex;
-  flex-direction: column;
-  padding: 0 3px;
-}
-
-.search-form__label-text:hover {
-  text-decoration: 1px underline #fff;
-}
+/* ? Content Details */
